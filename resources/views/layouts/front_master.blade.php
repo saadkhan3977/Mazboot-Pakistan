@@ -14,6 +14,14 @@
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('/admin/plugins/toastr/toastr.min.css')}}">
     <title>Sirf Mazboot Pakistan</title>
+    <style>
+      .toast-top-center { 
+        top: 12px;   
+        margin: 0 auto;  
+        left: 50%;   
+        margin-left: -150px;
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER START -->
@@ -219,8 +227,25 @@
     <!-- Toastr -->
     <script src="{{asset('/admin/plugins/toastr/toastr.min.js')}}"></script>
     <script>
+     
+var options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-bottom-right",
+  "preventDuplicates": false,
+  "showDuration": "3000",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
     @if(session('success'))
-    toastr.success("{{session('success')}}");
+    toastr.success("{{session('success')}}",'',options);
     @endif
     @if(session('error'))
     toastr.error("{{session('error')}}")
